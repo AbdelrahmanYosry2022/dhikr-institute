@@ -71,7 +71,7 @@ export function HeroSection() {
             <div className="space-y-8">
               <div className="space-y-4">
                 <div className="inline-flex items-center px-3 py-1 text-sm font-medium text-[#245E51] bg-[#A8FF51]/20 rounded-full border border-[#A8FF51]/30">
-                  🌟 Learn Quran & Arabic Online
+                  Learn Quran & Arabic Online
                 </div>
                 <h1 className="text-5xl font-bold text-gray-900 leading-tight lg:text-6xl xl:text-7xl">
                   Master the Sacred{" "}

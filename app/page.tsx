@@ -1,6 +1,6 @@
 import { Header } from "@/pages/home/sections/header"
 import { HeroSection } from "@/pages/home/sections/hero/index"
-import { FeaturesSection } from "@/pages/home/sections/features"
+import { FeaturesSection } from "@/pages/home/sections/features/index"
 import { CoursesOverview } from "@/pages/home/sections/courses"
 // removed PopularCategories
 import { TestimonialsSection } from "@/pages/home/sections/testimonials"
