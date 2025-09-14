@@ -1,8 +1,6 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import Script from "next/script"
-import Link from "next/link"
 import "@/styles/dots-grid.css"
 
 declare global {
@@ -175,11 +173,26 @@ export function DotsGridSection() {
   return () => { clearInterval(t); cleanup?.() }
   }, [])
 
+  useEffect(() => {
+    // Load GSAP scripts
+    const script1 = document.createElement('script')
+    script1.src = 'https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js'
+    script1.async = true
+    document.head.appendChild(script1)
+
+    const script2 = document.createElement('script')
+    script2.src = 'https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/InertiaPlugin.min.js'
+    script2.async = true
+    document.head.appendChild(script2)
+
+    return () => {
+      document.head.removeChild(script1)
+      document.head.removeChild(script2)
+    }
+  }, [])
+
   return (
     <section className="dots-section">
-      <Script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" strategy="afterInteractive" />
-      <Script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/InertiaPlugin.min.js" strategy="afterInteractive" />
-
       <div className="dots-wrap">
         <div ref={containerRef} data-dots-container-init className="dots-container" />
       </div>
@@ -187,9 +200,9 @@ export function DotsGridSection() {
       <div className="absolute bottom-4 left-0 right-0 flex justify-center pointer-events-none">
         <p className="text-neutral-200/60 text-sm pointer-events-auto">
           Resource by {" "}
-          <Link href="https://www.osmo.supply?utm_source=codepen&utm_medium=pen&utm_campaign=glowing-interactive-dots-grid" target="_blank" className="underline text-neutral-100">
+          <a href="https://www.osmo.supply?utm_source=codepen&utm_medium=pen&utm_campaign=glowing-interactive-dots-grid" target="_blank" className="underline text-neutral-100">
             Osmo
-          </Link>
+          </a>
         </p>
       </div>
     </section>

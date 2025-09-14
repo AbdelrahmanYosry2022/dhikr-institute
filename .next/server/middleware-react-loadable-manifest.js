@@ -1,1 +1,0 @@
-self.__REACT_LOADABLE_MANIFEST="{\"pages/home/sections/hero/index.tsx -> @lottiefiles/dotlottie-react\":{\"id\":\"pages/home/sections/hero/index.tsx -> @lottiefiles/dotlottie-react\",\"files\":[\"static/chunks/_app-pages-browser_node_modules_lottiefiles_dotlottie-react_dist_browser_index_js.js\"]}}"
