@@ -1,13 +1,9 @@
 "use client"
 import { ArrowRight } from "lucide-react"
 import React from "react"
-import dynamic from "next/dynamic"
+import { DotLottieReact } from "@lottiefiles/dotlottie-react"
 
 export function HeroSection() {
-  const DotLottie = dynamic(
-    () => import("@lottiefiles/dotlottie-react").then((m) => m.DotLottieReact),
-    { ssr: false },
-  )
   return (
     <div className="bg-white">
       <header className="bg-white/95 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-50">
@@ -123,7 +119,7 @@ export function HeroSection() {
 
             <div className="flex items-center justify-center">
               <div className="w-full">
-                <DotLottie
+                <DotLottieReact
                   src="https://lottie.host/7b795c4a-181d-4dab-b71d-6db9c66ba740/PYY2O37pZ6.lottie"
                   loop
                   autoplay
