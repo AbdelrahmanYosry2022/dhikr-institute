@@ -1,0 +1,40 @@
+/* Osmo Dots Grid - Scoped to section */
+.dots-section {
+  position: relative;
+  height: 80svh;
+  border-radius: 0; /* no rounded corners */
+  overflow: hidden;
+  background: #08342a;
+  margin: 0; /* remove spacing above/below */
+}
+
+.dots-wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.dots-container {
+  pointer-events: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  inset: 0;
+  font-size: clamp(6px, 0.9vw, 14px);
+  gap: 2em;
+}
+
+.dot {
+  will-change: transform, background-color;
+  transform-origin: center;
+  background-color: #245e51;
+  border-radius: 50%;
+  width: 1em;
+  height: 1em;
+  position: relative;
+}
+
+/* Optional Osmo credit baseline styles (kept minimal) */
+.dots-section a { color: inherit; }
