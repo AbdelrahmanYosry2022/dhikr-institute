@@ -9,7 +9,8 @@ import { CallToActionSection } from "@/pages/home/sections/cta/component"
 import { Footer } from "@/pages/home/sections/footer"
 import { DotsGridSection } from "@/pages/home/sections/dots-grid"
 // removed MomentumGallerySection
-import { TeamCardCarousel } from "@/pages/home/sections/team"
+import TeamCardCarousel from "@/pages/home/sections/team"
+
 
 export default function HomePage() {
   return (
@@ -20,6 +21,7 @@ export default function HomePage() {
         <FeaturesSection />
   <CoursesOverview />
   <TeamCardCarousel />
+  
         <TestimonialsSection />
         <StatisticsSection />
         <CallToActionSection />

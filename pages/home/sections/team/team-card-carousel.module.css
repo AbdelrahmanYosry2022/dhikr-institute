@@ -1,4 +1,3 @@
-/* Copied team carousel CSS */
 .teamCarousel {
   width: 100%;
   display: flex;
@@ -181,19 +180,49 @@
   background: rgba(0, 0, 0, 0.8);
   transform: translateY(-50%) scale(1.1);
 }
-.left { left: 20px; padding-right: 3px; }
-.right { right: 20px; padding-left: 3px; }
+.left {
+  left: 20px;
+  padding-right: 3px;
+}
+.right {
+  right: 20px;
+  padding-left: 3px;
+}
 
 @media (max-width: 768px) {
-  .aboutTitle { font-size: 4.5rem; }
-  .card { width: 200px; height: 280px; }
-  .cardLeft2 { transform: translateX(calc(-50% - 200px)) scale(0.85) translateZ(-240px); }
-  .cardLeft1 { transform: translateX(calc(-50% - 100px)) scale(0.92) translateZ(-100px); }
-  .cardRight1 { transform: translateX(calc(-50% + 100px)) scale(0.92) translateZ(-100px); }
-  .cardRight2 { transform: translateX(calc(-50% + 200px)) scale(0.85) translateZ(-240px); }
-  .memberName { font-size: 2rem; }
-  .memberRole { font-size: 1.2rem; }
-  .memberName::before, .memberName::after { width: 50px; }
-  .memberName::before { left: -70px; }
-  .memberName::after { right: -70px; }
+  .aboutTitle {
+    font-size: 4.5rem;
+  }
+  .card {
+    width: 200px;
+    height: 280px;
+  }
+  .cardLeft2 {
+    transform: translateX(calc(-50% - 200px)) scale(0.85) translateZ(-240px);
+  }
+  .cardLeft1 {
+    transform: translateX(calc(-50% - 100px)) scale(0.92) translateZ(-100px);
+  }
+  .cardRight1 {
+    transform: translateX(calc(-50% + 100px)) scale(0.92) translateZ(-100px);
+  }
+  .cardRight2 {
+    transform: translateX(calc(-50% + 200px)) scale(0.85) translateZ(-240px);
+  }
+  .memberName {
+    font-size: 2rem;
+  }
+  .memberRole {
+    font-size: 1.2rem;
+  }
+  .memberName::before,
+  .memberName::after {
+    width: 50px;
+  }
+  .memberName::before {
+    left: -70px;
+  }
+  .memberName::after {
+    right: -70px;
+  }
 }

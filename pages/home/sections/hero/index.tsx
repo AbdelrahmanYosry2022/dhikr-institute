@@ -5,67 +5,7 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react"
 
 export function HeroSection() {
   return (
-    <div className="bg-white">
-      <header className="bg-white/95 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-50">
-        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-18">
-            <div className="flex-shrink-0">
-              <a href="#" className="flex items-center space-x-2">
-                <img className="w-auto h-9" src="/logo/SVG/Asset 3.svg" alt="Dhikr Institute" />
-                <span className="sr-only">Dhikr Institute</span>
-              </a>
-            </div>
-
-            <button
-              type="button"
-              className="inline-flex items-center justify-center p-2 text-gray-600 transition-all duration-200 rounded-lg lg:hidden hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              <svg
-                className="block w-6 h-6"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 8h16M4 16h16"></path>
-              </svg>
-            </button>
-
-            <nav className="hidden lg:flex lg:items-center lg:space-x-8">
-              <a href="#" className="text-sm font-medium text-gray-700 hover:text-[#245E51] transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-[#A8FF51]/10">
-                Courses
-              </a>
-              <a href="#" className="text-sm font-medium text-gray-700 hover:text-[#245E51] transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-[#A8FF51]/10">
-                Teachers
-              </a>
-              <a href="#" className="text-sm font-medium text-gray-700 hover:text-[#245E51] transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-[#A8FF51]/10">
-                About
-              </a>
-              <a href="#" className="text-sm font-medium text-gray-700 hover:text-[#245E51] transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-[#A8FF51]/10">
-                Contact
-              </a>
-              
-              <div className="flex items-center space-x-3 ml-6">
-                <a
-                  href="#"
-                  className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors duration-200"
-                >
-                  Sign In
-                </a>
-                <a
-                  href="#"
-                  className="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white bg-gradient-to-r from-[#245E51] to-[#1a4a3e] rounded-lg hover:from-[#1a4a3e] hover:to-[#245E51] transition-all duration-200 shadow-sm hover:shadow-md transform hover:-translate-y-0.5"
-                  role="button"
-                >
-                  Join Now
-                </a>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </header>
-
-      <section className="bg-[#FCF8F1] bg-opacity-30 py-10 sm:py-16 lg:py-24">
+      <section className="bg-[#fcf9f2] py-10 sm:py-16 lg:py-24">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="grid items-center grid-cols-1 gap-16 lg:grid-cols-2">
             <div className="space-y-8">
@@ -134,6 +74,5 @@ export function HeroSection() {
           </div>
         </div>
       </section>
-    </div>
   )
 }

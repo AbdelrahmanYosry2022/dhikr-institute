@@ -50,10 +50,6 @@ const cardVariants = {
   visible: {
     opacity: 1,
     scale: 1,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
   },
 }
 
@@ -95,8 +91,8 @@ export function StatisticsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl font-bold mb-6 text-balance">Our Impact in Numbers</h2>
-          <p className="text-xl text-primary-foreground/80 max-w-3xl mx-auto text-pretty leading-relaxed">
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-6 text-balance">Our Impact in Numbers</h2>
+          <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto text-pretty">
             Join thousands of students worldwide who have chosen us for their transformative Quranic and Arabic learning
             journey.
           </p>
@@ -110,7 +106,11 @@ export function StatisticsSection() {
           viewport={{ once: true }}
         >
           {stats.map((stat, index) => (
-            <motion.div key={index} variants={cardVariants}>
+            <motion.div 
+              key={index} 
+              variants={cardVariants}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
               <Card className="bg-primary-foreground/10 border-primary-foreground/20 text-center group hover:bg-primary-foreground/20 transition-all duration-500 backdrop-blur-sm hover:scale-105">
                 <CardContent className="p-8">
                   <motion.div
