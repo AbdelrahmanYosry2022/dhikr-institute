@@ -10,28 +10,28 @@ const stats = [
     number: "2,500+",
     label: "Active Students",
     description: "From 50+ countries worldwide",
-    color: "from-blue-500 to-cyan-500",
+    color: "from-emerald-500 to-emerald-600",
   },
   {
     icon: BookOpen,
     number: "25+",
     label: "Expert Teachers",
     description: "Qualified & experienced instructors",
-    color: "from-emerald-500 to-teal-500",
+    color: "from-emerald-600 to-emerald-700",
   },
   {
     icon: Clock,
     number: "50,000+",
     label: "Teaching Hours",
     description: "Delivered with excellence",
-    color: "from-purple-500 to-violet-500",
+    color: "from-emerald-500 to-emerald-600",
   },
   {
     icon: Award,
     number: "1,800+",
     label: "Certificates Issued",
     description: "Course completions & achievements",
-    color: "from-amber-500 to-orange-500",
+    color: "from-emerald-600 to-emerald-700",
   },
 ]
 

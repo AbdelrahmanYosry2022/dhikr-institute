@@ -119,11 +119,7 @@ export function CallToActionSection() {
               >
                 <Button
                   size="lg"
-                  className="bg-secondary hover:bg-secondary/90 text-white text-lg px-10 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group border-0"
-                  style={{
-                    backgroundColor: "oklch(0.72 0.15 65)",
-                    color: "white",
-                  }}
+                  className="bg-secondary hover:bg-secondary/90 text-secondary-foreground text-lg px-10 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group border-0"
                 >
                   Start Free Trial Lesson
                   <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />

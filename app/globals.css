@@ -4,40 +4,40 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated modern color palette with richer tones */
+  /* Updated modern color palette with emerald tones */
   --background: oklch(0.99 0.005 106);
   --foreground: oklch(0.15 0.02 106);
   --card: oklch(0.98 0.01 106);
   --card-foreground: oklch(0.15 0.02 106);
   --popover: oklch(0.99 0.005 106);
   --popover-foreground: oklch(0.15 0.02 106);
-  --primary: oklch(0.45 0.18 185); /* Deep teal */
+  --primary: oklch(0.696 0.17 162.48); /* Emerald-500 */
   --primary-foreground: oklch(0.98 0.01 106);
-  --secondary: oklch(0.72 0.15 65); /* Rich gold */
-  --secondary-foreground: oklch(0.1 0.02 106);
+  --secondary: oklch(0.596 0.145 163.225); /* Emerald-600 */
+  --secondary-foreground: oklch(0.98 0.01 106);
   --muted: oklch(0.95 0.01 106);
   --muted-foreground: oklch(0.45 0.02 106);
-  --accent: oklch(0.72 0.15 65);
+  --accent: oklch(0.845 0.143 164.978); /* Emerald-300 */
   --accent-foreground: oklch(0.1 0.02 106);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(1 0 0);
   --border: oklch(0.88 0.01 106);
   --input: oklch(0.95 0.01 106);
-  --ring: oklch(0.45 0.18 185);
-  --chart-1: oklch(0.45 0.18 185);
-  --chart-2: oklch(0.72 0.15 65);
-  --chart-3: oklch(0.55 0.12 160);
-  --chart-4: oklch(0.65 0.1 280);
-  --chart-5: oklch(0.6 0.2 30);
+  --ring: oklch(0.696 0.17 162.48); /* Emerald-500 */
+  --chart-1: oklch(0.765 0.177 163.223); /* Emerald-400 */
+  --chart-2: oklch(0.508 0.118 165.612); /* Emerald-700 */
+  --chart-3: oklch(0.432 0.095 166.913); /* Emerald-800 */
+  --chart-4: oklch(0.845 0.143 164.978); /* Emerald-300 */
+  --chart-5: oklch(0.905 0.093 164.15); /* Emerald-200 */
   --radius: 1rem;
   --sidebar: oklch(0.98 0.01 106);
   --sidebar-foreground: oklch(0.15 0.02 106);
-  --sidebar-primary: oklch(0.45 0.18 185);
+  --sidebar-primary: oklch(0.696 0.17 162.48); /* Emerald-500 */
   --sidebar-primary-foreground: oklch(0.98 0.01 106);
   --sidebar-accent: oklch(0.95 0.01 106);
   --sidebar-accent-foreground: oklch(0.15 0.02 106);
   --sidebar-border: oklch(0.88 0.01 106);
-  --sidebar-ring: oklch(0.45 0.18 185);
+  --sidebar-ring: oklch(0.696 0.17 162.48); /* Emerald-500 */
 }
 
 .dark {
@@ -47,32 +47,32 @@
   --card-foreground: oklch(0.95 0.01 106);
   --popover: oklch(0.05 0.01 106);
   --popover-foreground: oklch(0.95 0.01 106);
-  --primary: oklch(0.55 0.18 185);
+  --primary: oklch(0.696 0.17 162.48); /* Emerald-500 */
   --primary-foreground: oklch(0.05 0.01 106);
-  --secondary: oklch(0.82 0.15 65);
-  --secondary-foreground: oklch(0.05 0.01 106);
+  --secondary: oklch(0.596 0.145 163.225); /* Emerald-600 */
+  --secondary-foreground: oklch(0.95 0.01 106);
   --muted: oklch(0.12 0.01 106);
   --muted-foreground: oklch(0.65 0.01 106);
-  --accent: oklch(0.82 0.15 65);
-  --accent-foreground: oklch(0.05 0.01 106);
+  --accent: oklch(0.508 0.118 165.612); /* Emerald-700 for dark mode */
+  --accent-foreground: oklch(0.95 0.01 106);
   --destructive: oklch(0.6 0.2 25);
   --destructive-foreground: oklch(0.95 0.01 106);
   --border: oklch(0.18 0.01 106);
   --input: oklch(0.12 0.01 106);
-  --ring: oklch(0.55 0.18 185);
-  --chart-1: oklch(0.55 0.18 185);
-  --chart-2: oklch(0.82 0.15 65);
-  --chart-3: oklch(0.65 0.12 160);
-  --chart-4: oklch(0.75 0.1 280);
-  --chart-5: oklch(0.7 0.2 30);
+  --ring: oklch(0.696 0.17 162.48); /* Emerald-500 */
+  --chart-1: oklch(0.765 0.177 163.223); /* Emerald-400 */
+  --chart-2: oklch(0.508 0.118 165.612); /* Emerald-700 */
+  --chart-3: oklch(0.432 0.095 166.913); /* Emerald-800 */
+  --chart-4: oklch(0.845 0.143 164.978); /* Emerald-300 */
+  --chart-5: oklch(0.905 0.093 164.15); /* Emerald-200 */
   --sidebar: oklch(0.08 0.01 106);
   --sidebar-foreground: oklch(0.95 0.01 106);
-  --sidebar-primary: oklch(0.55 0.18 185);
+  --sidebar-primary: oklch(0.696 0.17 162.48); /* Emerald-500 */
   --sidebar-primary-foreground: oklch(0.05 0.01 106);
   --sidebar-accent: oklch(0.12 0.01 106);
   --sidebar-accent-foreground: oklch(0.95 0.01 106);
   --sidebar-border: oklch(0.18 0.01 106);
-  --sidebar-ring: oklch(0.55 0.18 185);
+  --sidebar-ring: oklch(0.696 0.17 162.48); /* Emerald-500 */
 }
 
 @theme inline {

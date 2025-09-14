@@ -15,7 +15,7 @@ const courses = [
     rating: 4.9,
     price: "Free",
     originalPrice: null,
-    gradient: "from-orange-400 via-pink-400 to-pink-500",
+    gradient: "from-primary/80 via-primary to-primary/90",
     badge: "Popular",
     badgeType: "popular",
   },
@@ -28,7 +28,7 @@ const courses = [
     rating: 4.8,
     price: "$99",
     originalPrice: null,
-    gradient: "from-purple-500 via-purple-600 to-indigo-600",
+    gradient: "from-primary via-primary/90 to-primary/80",
     badge: "New",
     badgeType: "new",
   },
@@ -41,7 +41,7 @@ const courses = [
     rating: 4.9,
     price: "$149",
     originalPrice: "$199",
-    gradient: "from-pink-400 via-red-400 to-orange-400",
+    gradient: "from-primary/80 via-primary to-primary/90",
     badge: "Sale",
     badgeType: "sale",
   },
@@ -54,7 +54,7 @@ const courses = [
     rating: 4.7,
     price: "$79",
     originalPrice: null,
-    gradient: "from-cyan-400 via-blue-400 to-blue-500",
+    gradient: "from-emerald-400 via-emerald-500 to-emerald-600",
     badge: null,
     badgeType: null,
   },
@@ -84,7 +84,7 @@ const cardVariants = {
 
 export function CoursesOverview() {
   return (
-    <section className="py-12 bg-gray-50 sm:py-16 lg:py-20">
+    <section className="py-12 bg-background sm:py-16 lg:py-20">
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
         <motion.div
           className="max-w-md mx-auto text-center"
@@ -93,8 +93,8 @@ export function CoursesOverview() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl">Our Featured Courses</h2>
-          <p className="mt-4 text-base font-normal leading-7 text-gray-600">
+          <h2 className="text-2xl font-bold text-foreground sm:text-3xl">Our Featured Courses</h2>
+          <p className="mt-4 text-base font-normal leading-7 text-muted-foreground">
             Discover our comprehensive range of expertly designed courses that will transform your Quranic and Arabic
             learning journey.
           </p>
@@ -114,7 +114,7 @@ export function CoursesOverview() {
               variants={cardVariants}
             >
               <div className="relative p-4">
-                <div className="relative h-40 bg-gray-100 rounded-xl overflow-hidden">
+                <div className="relative h-40 bg-muted rounded-xl overflow-hidden">
                   <img
                     src={`/abstract-geometric-shapes.png?key=tnq5k&height=160&width=280&query=${
                       index === 0
@@ -134,12 +134,12 @@ export function CoursesOverview() {
                       <span
                         className={`px-3 py-1 text-xs font-bold tracking-wide uppercase rounded-full ${
                           course.badgeType === "new"
-                            ? "text-gray-900 bg-white"
+                            ? "text-foreground bg-background"
                             : course.badgeType === "sale"
-                              ? "text-white bg-gray-900"
+                              ? "text-background bg-foreground"
                               : course.badgeType === "popular"
-                                ? "text-gray-900 bg-yellow-400"
-                                : "text-gray-900 bg-white"
+                                ? "text-foreground bg-primary"
+                                : "text-foreground bg-background"
                         }`}
                       >
                         {course.badge}
@@ -150,25 +150,25 @@ export function CoursesOverview() {
               </div>
 
               <div className="p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-yellow-600 transition-colors">
+                <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                   {course.title}
                 </h3>
 
-                <p className="text-sm text-gray-600 mb-4 line-clamp-2">{course.description}</p>
+                <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{course.description}</p>
 
-                <div className="text-xs text-gray-500 mb-4">{course.students} students enrolled</div>
+                <div className="text-xs text-muted-foreground mb-4">{course.students} students enrolled</div>
 
-                <div className="flex justify-between items-center pt-4 border-t border-gray-100">
+                <div className="flex justify-between items-center pt-4 border-t border-border">
                   <div>
-                    <div className="text-xs text-gray-500 uppercase tracking-wide">Duration</div>
-                    <div className="text-sm font-semibold text-gray-900">{course.duration}</div>
+                    <div className="text-xs text-muted-foreground uppercase tracking-wide">Duration</div>
+                    <div className="text-sm font-semibold text-foreground">{course.duration}</div>
                   </div>
                   <div className="text-right">
-                    <div className="text-xs text-gray-500 uppercase tracking-wide">Price</div>
+                    <div className="text-xs text-muted-foreground uppercase tracking-wide">Price</div>
                     <div className="flex items-center space-x-2">
-                      <span className="text-lg font-bold text-gray-900">{course.price}</span>
+                      <span className="text-lg font-bold text-foreground">{course.price}</span>
                       {course.originalPrice && (
-                        <span className="text-sm text-gray-500 line-through">{course.originalPrice}</span>
+                        <span className="text-sm text-muted-foreground line-through">{course.originalPrice}</span>
                       )}
                     </div>
                   </div>
@@ -187,7 +187,7 @@ export function CoursesOverview() {
         >
           <Button
             size="lg"
-            className="px-8 py-3 text-gray-900 bg-yellow-500 hover:bg-yellow-600 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group border-0"
+            className="px-8 py-3 bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group border-0"
           >
             View All Courses
             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
