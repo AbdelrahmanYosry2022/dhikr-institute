@@ -15,8 +15,8 @@ export function HeroSection() {
           <div className="flex items-center justify-between h-16 lg:h-18">
             <div className="flex-shrink-0">
               <a href="#" className="flex items-center space-x-2">
-                <img className="w-auto h-9" src="/quran-academy-logo.jpg" alt="Quran Academy" />
-                <span className="text-xl font-bold text-gray-900">Dhikr Institute</span>
+                <img className="w-auto h-9" src="/logo/SVG/Asset 3.svg" alt="Dhikr Institute" />
+                <span className="sr-only">Dhikr Institute</span>
               </a>
             </div>
 

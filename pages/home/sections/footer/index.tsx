@@ -1,4 +1,4 @@
-import { BookOpen, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Youtube } from "lucide-react"
+import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Youtube } from "lucide-react"
 
 export function Footer() {
   return (
@@ -6,10 +6,10 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <BookOpen className="h-8 w-8 text-secondary" />
-              <span className="text-xl font-bold">Quran Academy</span>
-            </div>
+            <a href="#home" className="flex items-center space-x-2">
+              <img src="/logo/SVG/Asset 3.svg" alt="Dhikr Institute" className="h-8 w-auto" />
+              <span className="sr-only">Dhikr Institute</span>
+            </a>
             <p className="text-background/80 text-pretty">
               Dedicated to providing high-quality online Quran and Arabic education for students worldwide with expert
               teachers and flexible schedules.
@@ -115,7 +115,7 @@ export function Footer() {
 
         <div className="border-t border-background/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-background/60 text-sm">© 2024 Quran Academy. All rights reserved.</p>
+            <p className="text-background/60 text-sm">© 2024 Dhikr Institute. All rights reserved.</p>
             <div className="flex space-x-6 text-sm text-background/60">
               <a href="#" className="hover:text-secondary transition-colors">
                 Privacy Policy

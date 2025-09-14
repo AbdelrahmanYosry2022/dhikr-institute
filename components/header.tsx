@@ -1,14 +1,14 @@
 import { Button } from "@/components/ui/button"
-import { BookOpen, Menu } from "lucide-react"
+import { Menu } from "lucide-react"
 
 export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <div className="flex items-center space-x-2">
-          <BookOpen className="h-8 w-8 text-primary" />
-          <span className="text-xl font-bold text-foreground">Quran Academy</span>
-        </div>
+        <a href="#home" className="flex items-center space-x-2">
+          <img src="/logo/SVG/Asset 3.svg" alt="Dhikr Institute" className="h-8 w-auto" />
+          <span className="sr-only">Dhikr Institute</span>
+        </a>
 
         <nav className="hidden md:flex items-center space-x-8">
           <a href="#home" className="text-sm font-medium hover:text-primary transition-colors">

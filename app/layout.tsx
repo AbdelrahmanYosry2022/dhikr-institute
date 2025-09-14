@@ -11,6 +11,11 @@ export const metadata: Metadata = {
   description:
     "Professional online Quran and Arabic language learning for English speakers worldwide. Expert teachers, flexible schedules, and personalized instruction.",
   generator: "v0.app",
+  icons: {
+    icon: "/logo/SVG/Asset 3.svg",
+    shortcut: "/logo/SVG/Asset 3.svg",
+    apple: "/logo/SVG/Asset 3.svg",
+  },
 }
 
 export default function RootLayout({
