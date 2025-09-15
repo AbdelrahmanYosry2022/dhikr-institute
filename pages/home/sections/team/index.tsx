@@ -115,7 +115,7 @@ export default function TeamCardCarousel() {
   }, [currentIndex, isAnimating])
 
   return (
-    <section className="bg-white py-16 sm:py-20 lg:py-24">
+    <section className="bg-white py-16 sm:py-20 lg:py-24 rounded-3xl mx-4 sm:mx-6 lg:mx-8 border border-gray-100">
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center space-y-4 mb-16">

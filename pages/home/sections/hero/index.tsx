@@ -5,7 +5,7 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react"
 
 export function HeroSection() {
   return (
-      <section className="bg-[#fcf9f2] py-10 sm:py-16 lg:py-24">
+      <section className="bg-[#fcf9f2] pt-24 pb-10 sm:pt-28 sm:pb-16 lg:pt-48 lg:pb-24">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="grid items-center grid-cols-1 gap-16 lg:grid-cols-2">
             <div className="space-y-8">
