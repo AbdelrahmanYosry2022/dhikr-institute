@@ -7,6 +7,7 @@ import { motion } from "framer-motion"
 // TextPressure is a JS component; TS is allowed via allowJs
 import TextPressure from "@/components/TextPressure"
 import { ShimmerButton } from "@/components/reactbits/shimmer-button"
+import "../../../../styles/learn-more-button.css"
 
 export function CallToActionSection() {
   return (
@@ -16,7 +17,7 @@ export function CallToActionSection() {
           <div className="relative max-w-6xl mx-auto">
             {/* Background TextPressure effect */}
             <div className="pointer-events-none absolute inset-x-0 top-0 bottom-30 z-20 -translate-y-1/2">
-              <div className="mx-auto w-full max-w-5xl" style={{ height: 200 }}>
+              <div className="mx-auto mt-16 w-full max-w-5xl" style={{ height: 200 }}>
                 <TextPressure
                   text="JOIN DHIKR"
                   textColor="#eafbe0"
@@ -43,6 +44,8 @@ export function CallToActionSection() {
               </motion.p>
 
 
+              
+
               <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-gray-500">
                 <div className="flex items-center justify-center gap-2">
                   <BookOpen className="h-5 w-5 text-[#245E51]" />
@@ -57,6 +60,15 @@ export function CallToActionSection() {
                   <span>4.9/5 average rating</span>
                 </div>
               </div>
+              <motion.div
+                className="mt-12 flex flex-col sm:flex-row gap-6 justify-center items-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+              >
+                <button className="learn-more">Start Free Trial Lesson</button>
+              </motion.div>
               </CardContent>
             </Card>
           </div>

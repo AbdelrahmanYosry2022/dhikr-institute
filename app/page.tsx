@@ -12,6 +12,8 @@ import { DotsGridSection } from "@/pages/home/sections/dots-grid"
 import TeamCardCarousel from "@/pages/home/sections/team"
 
 
+
+
 export default function HomePage() {
   return (
     <div className="min-h-screen">

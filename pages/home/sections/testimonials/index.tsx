@@ -1,5 +1,7 @@
 import { Card, CardContent } from "../../../../components/ui/card"
 import { Quote } from "lucide-react"
+import "../../../../styles/shiny-button.css"
+import "../../../../styles/learn-more-button.css"
 
 const testimonials = [
   {
@@ -58,7 +60,7 @@ export function TestimonialsSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="mx-auto max-w-3xl text-balance text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
-            What Our Students Say
+            What Our <span className="text-transparent bg-gradient-to-r from-[#245E51] to-[#A8FF51] bg-clip-text">Students</span> Say
           </h2>
           <p className="mt-4 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
             Hear from our global community of students who have transformed their Quranic and Arabic learning journey with us.
@@ -236,6 +238,11 @@ export function TestimonialsSection() {
               </div>
             ))}
           </div>
+        </div>
+        
+
+        <div className="text-center mt-16">
+          <button className="learn-more">Discover your path</button>
         </div>
       </div>
     </section>

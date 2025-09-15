@@ -1,4 +1,5 @@
 import './GradientText.css';
+import { motion } from 'framer-motion';
 
 export default function GradientText({
   children,
@@ -13,11 +14,42 @@ export default function GradientText({
   };
 
   return (
-    <div className={`animated-gradient-text ${className}`}>
-      {showBorder && <div className="gradient-overlay" style={gradientStyle}></div>}
-      <div className="text-content" style={gradientStyle}>
+    <motion.div 
+      className={`animated-gradient-text ${className}`}
+      layout
+      transition={{
+        type: "spring",
+        damping: 25,
+        stiffness: 300,
+        duration: 0.4
+      }}
+    >
+      {showBorder && (
+        <motion.div 
+          className="gradient-overlay" 
+          style={gradientStyle}
+          layout
+          transition={{
+            type: "spring",
+            damping: 25,
+            stiffness: 300,
+            duration: 0.4
+          }}
+        />
+      )}
+      <motion.div 
+        className="text-content" 
+        style={gradientStyle}
+        layout
+        transition={{
+          type: "spring",
+          damping: 25,
+          stiffness: 300,
+          duration: 0.4
+        }}
+      >
         {children}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { BookOpen, ArrowRight, Sparkles, Star } from "lucide-react"
 import { motion } from "framer-motion"
+import "../styles/learn-more-button.css"
 
 export function CallToActionSection() {
   return (
@@ -117,20 +118,8 @@ export function CallToActionSection() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.6, duration: 0.6 }}
               >
-                <Button
-                  size="lg"
-                  className="bg-secondary hover:bg-secondary/90 text-secondary-foreground text-lg px-10 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group border-0"
-                >
-                  Start Free Trial Lesson
-                  <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 text-lg px-10 py-4 rounded-xl bg-transparent backdrop-blur-sm transition-all duration-300"
-                >
-                  Schedule Consultation
-                </Button>
+                <button className="learn-more" style={{color: '#7ecd5a'}}>Start Free Trial Lesson</button>
+                <button className="learn-more" style={{color: '#7ecd5a'}}>Schedule Consultation</button>
               </motion.div>
 
               <motion.div

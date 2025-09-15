@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
+import "../../../../styles/learn-more-button.css"
 
 const courses = [
   {
@@ -213,13 +214,7 @@ export function CoursesOverview() {
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          <Button
-            size="lg"
-            className="px-8 py-3 inline-flex items-center justify-center text-white bg-gradient-to-r from-[#245E51] to-[#1a4a3e] hover:from-[#1a4a3e] hover:to-[#245E51] rounded-xl shadow-lg hover:shadow-xl transition-all duration-200"
-          >
-            View All Courses
-            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-          </Button>
+          <button className="learn-more">View All Courses</button>
         </motion.div>
       </div>
     </section>
