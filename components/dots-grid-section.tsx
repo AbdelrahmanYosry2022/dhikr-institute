@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useCallback, useState } from "react"
 import "@/styles/dots-grid.css"
 
 declare global {
@@ -14,6 +14,9 @@ export function DotsGridSection() {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const initialized = useRef(false)
   const cleanupRef = useRef<(() => void) | null>(null)
+  const animationFrameRef = useRef<number | null>(null)
+  const isLoadingRef = useRef(true)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     function initIfReady() {
@@ -38,7 +41,9 @@ export function DotsGridSection() {
 
       function buildGrid() {
         if (!container) return
-        container.innerHTML = ""
+        
+        // Use DocumentFragment for better performance
+        const fragment = document.createDocumentFragment()
         dots = []
         dotCenters = []
 
@@ -52,11 +57,18 @@ export function DotsGridSection() {
         const rows = Math.floor((contH + gapPx) / (dotPx + gapPx))
         const total = cols * rows
 
+        // Limit total dots for performance
+        if (total > 2000) {
+          console.warn('Too many dots, reducing grid size for performance')
+          return
+        }
+
         const holeCols = centerHole ? (cols % 2 === 0 ? 6 : 7) : 0
         const holeRows = centerHole ? (rows % 2 === 0 ? 6 : 7) : 0
         const startCol = (cols - holeCols) / 2
         const startRow = (rows - holeRows) / 2
 
+        // Batch DOM operations
         for (let i = 0; i < total; i++) {
           const row = Math.floor(i / cols)
           const col = i % cols
@@ -64,19 +76,24 @@ export function DotsGridSection() {
             centerHole && row >= startRow && row < startRow + holeRows && col >= startCol && col < startCol + holeCols
 
           const d = document.createElement("div")
-          d.classList.add("dot")
+          d.className = "dot"
           if (isHole) {
             d.style.visibility = "hidden"
             ;(d as any)._isHole = true
           } else {
-            gsap.set(d, { x: 0, y: 0, backgroundColor: colors.base })
+            d.style.backgroundColor = colors.base
             ;(d as any)._inertiaApplied = false
           }
-          container.appendChild(d)
+          fragment.appendChild(d)
           dots.push(d)
         }
+        
+        // Clear and append all at once
+        container.innerHTML = ""
+        container.appendChild(fragment)
 
-        requestAnimationFrame(() => {
+        // Defer center calculations to avoid layout thrashing
+        setTimeout(() => {
           dotCenters = dots
             .filter((d) => !(d as any)._isHole)
             .map((d) => {
@@ -87,7 +104,15 @@ export function DotsGridSection() {
                 y: r.top + window.scrollY + r.height / 2,
               }
             })
-        })
+          
+          // Initialize GSAP properties after DOM is ready
+          dotCenters.forEach(({ el }) => {
+            gsap.set(el, { x: 0, y: 0 })
+          })
+          
+          isLoadingRef.current = false
+          setIsLoading(false)
+        }, 50)
       }
 
       function onResize() {
@@ -99,9 +124,12 @@ export function DotsGridSection() {
 
       let lastTime = 0,
         lastX = 0,
-        lastY = 0
+        lastY = 0,
+        isAnimating = false
 
       const onMouseMove = (e: MouseEvent) => {
+        if (isAnimating || isLoadingRef.current) return
+        
         const now = performance.now()
         const dt = (now - lastTime) || 16
         let dx = e.pageX - lastX
@@ -119,26 +147,37 @@ export function DotsGridSection() {
         lastX = e.pageX
         lastY = e.pageY
 
-        requestAnimationFrame(() => {
+        if (animationFrameRef.current) {
+          cancelAnimationFrame(animationFrameRef.current)
+        }
+        
+        animationFrameRef.current = requestAnimationFrame(() => {
+          isAnimating = true
+          const mouseX = e.pageX
+          const mouseY = e.pageY
+          
           dotCenters.forEach(({ el, x, y }: any) => {
-            const dist = Math.hypot(x - e.pageX, y - e.pageY)
-            const t = Math.max(0, 1 - dist / threshold)
-            const col = gsap.utils.interpolate(colors.base, colors.active, t)
-            gsap.set(el, { backgroundColor: col })
+            const dist = Math.hypot(x - mouseX, y - mouseY)
+            if (dist < threshold * 1.5) { // Only process nearby dots
+              const t = Math.max(0, 1 - dist / threshold)
+              const col = gsap.utils.interpolate(colors.base, colors.active, t)
+              gsap.set(el, { backgroundColor: col })
 
-            if (speed > speedThreshold && dist < threshold && !(el as any)._inertiaApplied) {
-              ;(el as any)._inertiaApplied = true
-              const pushX = x - e.pageX + vx * 0.005
-              const pushY = y - e.pageY + vy * 0.005
-              gsap.to(el, {
-                inertia: { x: pushX, y: pushY, resistance: 750 },
-                onComplete() {
-                  gsap.to(el, { x: 0, y: 0, duration: 1.5, ease: "elastic.out(1,0.75)" })
-                  ;(el as any)._inertiaApplied = false
-                },
-              })
+              if (speed > speedThreshold && dist < threshold && !(el as any)._inertiaApplied) {
+                ;(el as any)._inertiaApplied = true
+                const pushX = x - mouseX + vx * 0.005
+                const pushY = y - mouseY + vy * 0.005
+                gsap.to(el, {
+                  inertia: { x: pushX, y: pushY, resistance: 750 },
+                  onComplete() {
+                    gsap.to(el, { x: 0, y: 0, duration: 1.5, ease: "elastic.out(1,0.75)" })
+                    ;(el as any)._inertiaApplied = false
+                  },
+                })
+              }
             }
           })
+          isAnimating = false
         })
       }
 
@@ -168,7 +207,18 @@ export function DotsGridSection() {
         window.removeEventListener("resize", onResize)
         window.removeEventListener("mousemove", onMouseMove)
         window.removeEventListener("click", onClick)
-        if (container) container.innerHTML = ""
+        if (animationFrameRef.current) {
+          cancelAnimationFrame(animationFrameRef.current)
+          animationFrameRef.current = null
+        }
+        if (container) {
+          // Kill all GSAP animations on this container
+          gsap.killTweensOf(container.querySelectorAll('.dot'))
+          container.innerHTML = ""
+        }
+        initialized.current = false
+        isLoadingRef.current = true
+         setIsLoading(true)
       }
 
       initialized.current = true
@@ -176,7 +226,7 @@ export function DotsGridSection() {
 
     // Try immediately and then periodically until scripts load
     initIfReady()
-    const t = setInterval(initIfReady, 200)
+    const t = setInterval(initIfReady, 100) // Reduced interval for faster loading
     return () => {
       clearInterval(t)
       cleanupRef.current?.()
@@ -184,31 +234,61 @@ export function DotsGridSection() {
   }, [])
 
   useEffect(() => {
-    // Load GSAP scripts
+    // Check if scripts are already loaded
+    if (window.gsap && window.InertiaPlugin) {
+       isLoadingRef.current = false
+       setIsLoading(false)
+       return
+     }
+
+    // Load GSAP scripts with better performance
     const script1 = document.createElement('script')
     script1.src = 'https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js'
-    script1.async = true
+    script1.async = false // Load synchronously for better control
+    script1.onload = () => {
+      // Load InertiaPlugin after GSAP is ready
+      const script2 = document.createElement('script')
+      script2.src = 'https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/InertiaPlugin.min.js'
+      script2.async = false
+      script2.onload = () => {
+        // Both scripts loaded, ready to initialize
+        setTimeout(() => {
+          if (window.gsap && window.InertiaPlugin) {
+             isLoadingRef.current = false
+             setIsLoading(false)
+           }
+        }, 50)
+      }
+      document.head.appendChild(script2)
+    }
     document.head.appendChild(script1)
 
-    const script2 = document.createElement('script')
-    script2.src = 'https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/InertiaPlugin.min.js'
-    script2.async = true
-    document.head.appendChild(script2)
-
     return () => {
-      if (document.head.contains(script1)) {
-        document.head.removeChild(script1)
-      }
-      if (document.head.contains(script2)) {
-        document.head.removeChild(script2)
-      }
+      const scripts = document.head.querySelectorAll('script[src*="gsap"]')
+      scripts.forEach(script => {
+        if (document.head.contains(script)) {
+          document.head.removeChild(script)
+        }
+      })
     }
   }, [])
 
   return (
     <section className="dots-section">
       <div className="dots-wrap">
-        <div ref={containerRef} data-dots-container-init className="dots-container" />
+        <div 
+          ref={containerRef} 
+          data-dots-container-init 
+          className="dots-container"
+          style={{ opacity: isLoading ? 0 : 1, transition: 'opacity 0.3s ease-in-out' }}
+        />
+        
+        {/* Loading indicator */}
+        {isLoading && (
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-5">
+            <div className="w-8 h-8 border-2 border-[#245E51] border-t-[#A8FF51] rounded-full animate-spin"></div>
+          </div>
+        )}
         
         {/* Center Logo */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">

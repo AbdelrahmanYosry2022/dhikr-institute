@@ -1,7 +1,7 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { BookOpen, Users, Clock, Award, Globe, Heart, Headphones, MessageCircle, Star } from "lucide-react"
-import { DotLottieReact } from "@lottiefiles/dotlottie-react"
 
 const features = [
   {
@@ -83,18 +83,36 @@ const blobShapes = [
 ]
 
 export function FeaturesSection() {
+  const [LottieComp, setLottieComp] = useState<null | ((props: any) => JSX.Element)>(null)
+  const [ready, setReady] = useState(false)
+
+  useEffect(() => {
+    const run = async () => {
+      setReady(true)
+      try {
+        const mod = await import("@lottiefiles/dotlottie-react")
+        setLottieComp(() => mod.DotLottieReact as unknown as (props: any) => JSX.Element)
+      } catch {}
+    }
+    // @ts-ignore
+    const ric = typeof requestIdleCallback !== "undefined" ? requestIdleCallback(run) : setTimeout(run, 150)
+    return () => {
+      // @ts-ignore
+      if (typeof cancelIdleCallback !== "undefined") cancelIdleCallback(ric as any)
+      else clearTimeout(ric as any)
+    }
+  }, [])
   return (
     <section className="py-20 bg-[#FCF8F1] rounded-b-[250px]">
       <div className="container mx-auto px-4">
         {/* Animation Header */}
         <div className="text-center mb-16">
           <div className="flex justify-center mb-6">
-            <DotLottieReact
-              src="/animations/healthy Star.lottie"
-              loop
-              autoplay
-              style={{ width: '120px', height: '120px' }}
-            />
+            {ready && LottieComp ? (
+              <LottieComp src="/animations/healthy Star.lottie" loop autoplay style={{ width: '120px', height: '120px' }} />
+            ) : (
+              <div style={{ width: '120px', height: '120px' }} />
+            )}
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Why Choose Our Academy
