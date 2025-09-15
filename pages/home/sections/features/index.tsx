@@ -1,6 +1,7 @@
 "use client"
 
 import { BookOpen, Users, Clock, Award, Globe, Heart, Headphones, MessageCircle, Star } from "lucide-react"
+import { DotLottieReact } from "@lottiefiles/dotlottie-react"
 
 const features = [
   {
@@ -83,8 +84,26 @@ const blobShapes = [
 
 export function FeaturesSection() {
   return (
-    <section className="py-20 bg-[#FCF8F1]">
+    <section className="py-20 bg-[#FCF8F1] rounded-b-[250px]">
       <div className="container mx-auto px-4">
+        {/* Animation Header */}
+        <div className="text-center mb-16">
+          <div className="flex justify-center mb-6">
+            <DotLottieReact
+              src="/animations/healthy Star.lottie"
+              loop
+              autoplay
+              style={{ width: '120px', height: '120px' }}
+            />
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Why Choose Our Academy
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Discover the comprehensive features that make our Quran and Arabic learning platform the perfect choice for your spiritual and educational journey.
+          </p>
+        </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {features.map((feature, index) => (
             <div key={index} className="text-center group">

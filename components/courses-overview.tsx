@@ -15,9 +15,11 @@ const courses = [
     rating: 4.9,
     price: "Free",
     originalPrice: null,
-    gradient: "from-orange-400 via-pink-400 to-pink-500",
+    gradient: "from-primary/80 via-primary to-primary/90",
     badge: "Popular",
     badgeType: "popular",
+    image: "https://seekersguidance.org/wp-content/uploads/2022/01/Kid-Child-Quran-Read-Reading-Mosque-Shutterstock-scaled.jpg",
+    imageAlt: "Quran with tajweed marks close-up",
   },
   {
     title: "Arabic Language Mastery",
@@ -28,9 +30,11 @@ const courses = [
     rating: 4.8,
     price: "$99",
     originalPrice: null,
-    gradient: "from-purple-500 via-purple-600 to-indigo-600",
+    gradient: "from-primary via-primary/90 to-primary/80",
     badge: "New",
     badgeType: "new",
+    image: "https://blog.globalsadaqah.com/wp-content/uploads/2022/02/561-1024x536.png",
+    imageAlt: "Arabic language study materials and books",
   },
   {
     title: "Quran Memorization (Hifz)",
@@ -41,9 +45,11 @@ const courses = [
     rating: 4.9,
     price: "$149",
     originalPrice: "$199",
-    gradient: "from-pink-400 via-red-400 to-orange-400",
+    gradient: "from-primary/80 via-primary to-primary/90",
     badge: "Sale",
     badgeType: "sale",
+    image: "https://dcok7u9o4gc10.cloudfront.net/uploads/ckeditor/pictures/1430/content_shutterstock_144203029.jpg",
+    imageAlt: "Student memorizing Quran (Hifz)",
   },
   {
     title: "Islamic Studies Foundation",
@@ -54,9 +60,11 @@ const courses = [
     rating: 4.7,
     price: "$79",
     originalPrice: null,
-    gradient: "from-cyan-400 via-blue-400 to-blue-500",
+    gradient: "from-emerald-400 via-emerald-500 to-emerald-600",
     badge: null,
     badgeType: null,
+    image: "https://images.pexels.com/photos/4521947/pexels-photo-4521947.jpeg?cs=srgb&dl=pexels-nadim-shaikh-2923533-4521947.jpg&fm=jpg",
+    imageAlt: "Islamic studies resources and mosque architecture",
   },
 ]
 
@@ -77,105 +85,125 @@ const cardVariants = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: "easeOut",
     },
   },
 }
 
 export function CoursesOverview() {
   return (
-    <section className="py-12 bg-gray-50 sm:py-16 lg:py-20">
+    <section className="py-12 sm:py-16 lg:py-24">
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
         <motion.div
-          className="max-w-md mx-auto text-center"
+          className="max-w-2xl mx-auto text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl">Our Featured Courses</h2>
-          <p className="mt-4 text-base font-normal leading-7 text-gray-600">
-            Discover our comprehensive range of expertly designed courses that will transform your Quranic and Arabic
-            learning journey.
+          <div className="inline-flex items-center px-3 py-1 text-sm font-medium text-[#245E51] bg-[#A8FF51]/20 rounded-full border border-[#A8FF51]/30">
+            Popular Programs
+          </div>
+          <h2 className="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight leading-tight text-gray-900">
+            Our Featured <span className="text-transparent bg-gradient-to-r from-[#245E51] to-[#A8FF51] bg-clip-text">Courses</span>
+          </h2>
+          <p className="mt-4 text-lg md:text-xl text-gray-600 max-w-2xl mx-auto text-pretty">
+            Discover expertly designed courses to elevate your Quranic and Arabic learning journey.
           </p>
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 gap-6 mt-10 sm:grid-cols-2 lg:mt-16 lg:gap-4 lg:grid-cols-4"
+          className="grid grid-cols-1 gap-6 mt-10 sm:grid-cols-2 lg:mt-16 lg:gap-6 lg:grid-cols-4"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {courses.map((course, index) => (
-            <motion.div
-              key={index}
-              className="relative group bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300"
-              variants={cardVariants}
-            >
-              <div className="relative p-4">
-                <div className="relative h-40 bg-gray-100 rounded-xl overflow-hidden">
-                  <img
-                    src={`/abstract-geometric-shapes.png?key=tnq5k&height=160&width=280&query=${
-                      index === 0
-                        ? "open quran book with arabic calligraphy"
-                        : index === 1
-                          ? "arabic letters and calligraphy design"
-                          : index === 2
-                            ? "geometric islamic pattern with crescents"
-                            : "mosque dome and minaret silhouette"
-                    }`}
-                    alt={course.title}
-                    className="w-full h-full object-cover"
-                  />
+          {courses.map((course, index) => {
+            const imageSrc =
+              (course as any).image ||
+              (index === 0
+                ? "/quran-with-tajweed-marks.jpg"
+                : index === 1
+                  ? "/arabic-language.jpg"
+                  : index === 2
+                    ? "/quran-memorization.jpg"
+                    : "/islamic-studies.jpg")
+            const imageAlt =
+              (course as any).imageAlt ||
+              (index === 0
+                ? "Quran with tajweed marks"
+                : index === 1
+                  ? "Arabic language study materials"
+                  : index === 2
+                    ? "Quran memorization (Hifz)"
+                    : "Islamic studies resources")
 
-                  {course.badge && (
-                    <div className="absolute left-3 top-3">
-                      <span
-                        className={`px-3 py-1 text-xs font-bold tracking-wide uppercase rounded-full ${
-                          course.badgeType === "new"
-                            ? "text-gray-900 bg-white"
-                            : course.badgeType === "sale"
-                              ? "text-white bg-gray-900"
-                              : course.badgeType === "popular"
-                                ? "text-gray-900 bg-yellow-400"
-                                : "text-gray-900 bg-white"
-                        }`}
-                      >
-                        {course.badge}
-                      </span>
-                    </div>
-                  )}
-                </div>
-              </div>
+            return (
+              <motion.div
+                key={index}
+                className="relative group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-[#A8FF51]"
+                variants={cardVariants}
+              >
+                <div className="relative p-4">
+                  <div className="relative aspect-[16/10] bg-gray-100 rounded-xl overflow-hidden">
+                    <img src={imageSrc} alt={imageAlt} loading="lazy" className="w-full h-full object-cover" />
 
-              <div className="p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-yellow-600 transition-colors">
-                  {course.title}
-                </h3>
+                    {course.badge && (
+                      <div className="absolute left-3 top-3">
+                        <span
+                          className={`px-3 py-1 text-xs font-semibold tracking-wide rounded-full backdrop-blur-sm border ${
+                            course.badgeType === "new"
+                              ? "text-gray-900 bg-white/70 border-white/60"
+                              : course.badgeType === "sale"
+                                ? "text-white bg-gray-900/90 border-gray-900"
+                                : course.badgeType === "popular"
+                                  ? "text-[#245E51] bg-[#A8FF51]/90 border-[#A8FF51]"
+                                  : "text-gray-900 bg-white/70 border-white/60"
+                          }`}
+                        >
+                          {course.badge}
+                        </span>
+                      </div>
+                    )}
 
-                <p className="text-sm text-gray-600 mb-4 line-clamp-2">{course.description}</p>
-
-                <div className="text-xs text-gray-500 mb-4">{course.students} students enrolled</div>
-
-                <div className="flex justify-between items-center pt-4 border-t border-gray-100">
-                  <div>
-                    <div className="text-xs text-gray-500 uppercase tracking-wide">Duration</div>
-                    <div className="text-sm font-semibold text-gray-900">{course.duration}</div>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-xs text-gray-500 uppercase tracking-wide">Price</div>
-                    <div className="flex items-center space-x-2">
-                      <span className="text-lg font-bold text-gray-900">{course.price}</span>
-                      {course.originalPrice && (
-                        <span className="text-sm text-gray-500 line-through">{course.originalPrice}</span>
-                      )}
-                    </div>
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent"></div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+
+                <div className="p-6">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#245E51] transition-colors">
+                    {course.title}
+                  </h3>
+
+                  <p className="text-sm text-gray-600 mb-4 line-clamp-2">{course.description}</p>
+
+                  <div className="flex items-center gap-3 text-xs text-gray-500 mb-4">
+                    <span className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-gray-50 border border-gray-100">{course.level}</span>
+                    <span>•</span>
+                    <span>{course.students} students</span>
+                    <span>•</span>
+                    <span>⭐ {course.rating}</span>
+                  </div>
+
+                  <div className="flex justify-between items-center pt-4 border-t border-gray-100">
+                    <div>
+                      <div className="text-xs text-gray-500 uppercase tracking-wide">Duration</div>
+                      <div className="text-sm font-semibold text-gray-900">{course.duration}</div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-xs text-gray-500 uppercase tracking-wide">Price</div>
+                      <div className="flex items-center space-x-2">
+                        <span className="text-lg font-bold text-gray-900">{course.price}</span>
+                        {course.originalPrice && (
+                          <span className="text-sm text-gray-500 line-through">{course.originalPrice}</span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )
+          })}
         </motion.div>
 
         <motion.div
@@ -187,7 +215,7 @@ export function CoursesOverview() {
         >
           <Button
             size="lg"
-            className="px-8 py-3 text-gray-900 bg-yellow-500 hover:bg-yellow-600 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group border-0"
+            className="px-8 py-3 inline-flex items-center justify-center text-white bg-gradient-to-r from-[#245E51] to-[#1a4a3e] hover:from-[#1a4a3e] hover:to-[#245E51] rounded-xl shadow-lg hover:shadow-xl transition-all duration-200"
           >
             View All Courses
             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />

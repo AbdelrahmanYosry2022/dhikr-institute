@@ -15,7 +15,7 @@
 }
 
 .dots-container {
-  pointer-events: none;
+  pointer-events: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

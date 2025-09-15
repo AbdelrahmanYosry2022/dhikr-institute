@@ -52,8 +52,8 @@ export function DotsGridSection() {
         const rows = Math.floor((contH + gapPx) / (dotPx + gapPx))
         const total = cols * rows
 
-        const holeCols = centerHole ? (cols % 2 === 0 ? 4 : 5) : 0
-        const holeRows = centerHole ? (rows % 2 === 0 ? 4 : 5) : 0
+        const holeCols = centerHole ? (cols % 2 === 0 ? 6 : 7) : 0
+        const holeRows = centerHole ? (rows % 2 === 0 ? 6 : 7) : 0
         const startCol = (cols - holeCols) / 2
         const startRow = (rows - holeRows) / 2
 
@@ -151,7 +151,7 @@ export function DotsGridSection() {
             const pushX = (x - e.pageX) * shockPower * falloff
             const pushY = (y - e.pageY) * shockPower * falloff
             gsap.to(el, {
-              inertia: { x: pushX, y: pushY, resistance: 750 },
+              inertia: { x: pushX, y: pushY, resistance: 500 },
               onComplete() {
                 gsap.to(el, { x: 0, y: 0, duration: 1.5, ease: "elastic.out(1,0.75)" })
                 ;(el as any)._inertiaApplied = false
@@ -196,8 +196,12 @@ export function DotsGridSection() {
     document.head.appendChild(script2)
 
     return () => {
-      document.head.removeChild(script1)
-      document.head.removeChild(script2)
+      if (document.head.contains(script1)) {
+        document.head.removeChild(script1)
+      }
+      if (document.head.contains(script2)) {
+        document.head.removeChild(script2)
+      }
     }
   }, [])
 
@@ -205,15 +209,17 @@ export function DotsGridSection() {
     <section className="dots-section">
       <div className="dots-wrap">
         <div ref={containerRef} data-dots-container-init className="dots-container" />
-      </div>
-
-      <div className="absolute bottom-4 left-0 right-0 flex justify-center pointer-events-none">
-        <p className="text-neutral-200/60 text-sm pointer-events-auto">
-          Resource by {" "}
-          <a href="https://www.osmo.supply?utm_source=codepen&utm_medium=pen&utm_campaign=glowing-interactive-dots-grid" target="_blank" className="underline text-neutral-100">
-            Osmo
-          </a>
-        </p>
+        
+        {/* Center Logo */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+          <div className="w-48 h-48 flex items-center justify-center">
+            <img 
+              src="/logo/SVG/Asset 2.svg" 
+              alt="Logo" 
+              className="w-48 h-48 object-contain filter brightness-0 invert"
+            />
+          </div>
+        </div>
       </div>
     </section>
   )
