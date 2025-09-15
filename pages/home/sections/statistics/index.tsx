@@ -52,51 +52,28 @@ const cardVariants = {
 
 export function StatisticsSection() {
   return (
-    <section className="py-24 bg-gradient-to-br from-primary via-primary/95 to-primary/90 text-primary-foreground relative overflow-hidden">
-      <div className="absolute inset-0 opacity-10">
+    <section className="py-24 ">
+      <div className="container mx-auto px-4">
         <motion.div
-          className="absolute top-20 left-20 w-32 h-32 bg-secondary rounded-full blur-xl"
-          animate={{
-            scale: [1, 1.5, 1],
-            opacity: [0.3, 0.6, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-20 w-40 h-40 bg-secondary rounded-full blur-xl"
-          animate={{
-            scale: [1.5, 1, 1.5],
-            opacity: [0.6, 0.3, 0.6],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-        />
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: 30 }}
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl font-bold mb-6 text-balance">Our Impact in Numbers</h2>
-          <p className="text-xl text-primary-foreground/80 max-w-3xl mx-auto text-pretty leading-relaxed">
-            Join thousands of students worldwide who have chosen us for their transformative Quranic and Arabic learning
-            journey.
+          <div className="inline-flex items-center px-3 py-1 text-sm font-medium text-[#245E51] bg-[#A8FF51]/20 rounded-full border border-[#A8FF51]/30">
+            Our Impact in Numbers
+          </div>
+          <h2 className="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight leading-tight text-gray-900">
+            Trusted by <span className="text-transparent bg-gradient-to-r from-[#245E51] to-[#A8FF51] bg-clip-text">Learners Worldwide</span>
+          </h2>
+          <p className="mt-4 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto text-pretty">
+            A growing community learning Quran and Arabic with certified teachers and structured programs.
           </p>
         </motion.div>
 
         <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -104,31 +81,22 @@ export function StatisticsSection() {
         >
           {stats.map((stat, index) => (
             <motion.div key={index} variants={cardVariants}>
-              <Card className="bg-primary-foreground/10 border-primary-foreground/20 text-center group hover:bg-primary-foreground/20 transition-all duration-500 backdrop-blur-sm hover:scale-105">
+              <Card className="bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 text-center">
                 <CardContent className="p-8">
-                  <motion.div
-                    className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br ${stat.color} mb-6 shadow-lg`}
-                    whileHover={{
-                      scale: 1.1,
-                      rotate: 5,
-                    }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <stat.icon className="h-10 w-10 text-white" />
-                  </motion.div>
-
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-[#A8FF51]/25 text-[#245E51] mb-5 border border-[#A8FF51]/40">
+                    <stat.icon className="h-8 w-8" />
+                  </div>
                   <motion.h3
-                    className="text-4xl font-bold mb-3"
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
+                    className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-2 tracking-tight"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 + 0.3, duration: 0.6 }}
+                    transition={{ delay: index * 0.05 + 0.2, duration: 0.5 }}
                   >
                     {stat.number}
                   </motion.h3>
-
-                  <h4 className="text-xl font-semibold mb-3 text-primary-foreground">{stat.label}</h4>
-                  <p className="text-primary-foreground/80 text-sm leading-relaxed">{stat.description}</p>
+                  <h4 className="text-base md:text-lg font-semibold text-gray-900 mb-1">{stat.label}</h4>
+                  <p className="text-sm text-gray-600">{stat.description}</p>
                 </CardContent>
               </Card>
             </motion.div>

@@ -1,0 +1,49 @@
+/* Copied team carousel CSS */
+.teamCarousel {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  padding: 0;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .teamCarousel { width: 90%; }
+}
+@media (max-width: 640px) {
+  .teamCarousel { width: 100%; }
+}
+
+.aboutTitle {
+  font-size: 7.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 42, 123, 0.35) 30%,
+    rgba(255, 255, 255, 0) 76%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 20px;
+
+.carouselTrack {
+
+@media (max-width: 768px) {
+  .aboutTitle { font-size: 4.5rem; }
+  .card { width: 200px; height: 280px; }
+  .cardLeft2 { transform: translateX(calc(-50% - 200px)) scale(0.85) translateZ(-240px); }
+  .cardLeft1 { transform: translateX(calc(-50% - 100px)) scale(0.92) translateZ(-100px); }
+  .cardRight1 { transform: translateX(calc(-50% + 100px)) scale(0.92) translateZ(-100px); }
+  .cardRight2 { transform: translateX(calc(-50% + 200px)) scale(0.85) translateZ(-240px); }
+  .memberName { font-size: 2rem; }
+  .memberRole { font-size: 1.2rem; }
+  .memberName::before, .memberName::after { width: 50px; }
+  .memberName::before { left: -70px; }
+  .memberName::after { right: -70px; }

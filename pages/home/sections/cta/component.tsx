@@ -4,67 +4,62 @@ import { Button } from "../../../../components/ui/button"
 import { Card, CardContent } from "../../../../components/ui/card"
 import { BookOpen, ArrowRight, Sparkles, Star } from "lucide-react"
 import { motion } from "framer-motion"
+// TextPressure is a JS component; TS is allowed via allowJs
+import TextPressure from "@/components/TextPressure"
+import { ShimmerButton } from "@/components/reactbits/shimmer-button"
 
 export function CallToActionSection() {
   return (
-    <section className="py-24 bg-gradient-to-br from-secondary/5 via-background to-primary/5 relative overflow-hidden">
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div className="absolute top-20 left-10 w-4 h-4 bg-secondary rounded-full" animate={{ y: [0, -100, 0], opacity: [0, 1, 0] }} transition={{ duration: 6, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }} />
-        <motion.div className="absolute top-40 right-20 w-3 h-3 bg-primary rounded-full" animate={{ y: [0, -80, 0], opacity: [0, 1, 0] }} transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 2 }} />
-        <motion.div className="absolute bottom-20 left-1/4 w-2 h-2 bg-secondary rounded-full" animate={{ y: [0, -60, 0], opacity: [0, 1, 0] }} transition={{ duration: 7, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 4 }} />
-      </div>
+    <section className="py-24 relative">
+      <div className="container mx-auto px-4">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <div className="relative max-w-6xl mx-auto">
+            {/* Background TextPressure effect */}
+            <div className="pointer-events-none absolute inset-x-0 top-0 bottom-30 z-20 -translate-y-1/2">
+              <div className="mx-auto w-full max-w-5xl" style={{ height: 200 }}>
+                <TextPressure
+                  text="JOIN DHIKR"
+                  textColor="#eafbe0"
+                  stroke
+                  strokeColor="#A8FF51"
+                  flex={false}
+                  scale={false}
+                  minFontSize={72}
+                />
+              </div>
+            </div>
+            <Card className="relative bg-white border border-gray-100 rounded-3xl shadow-xl overflow-hidden z-10 mt-8">
+              <CardContent className="p-10 md:p-14 lg:p-16 text-center relative z-10">
+              <div className="inline-flex items-center px-3 py-1 text-sm font-medium text-[#245E51] bg-[#A8FF51]/20 rounded-full border border-[#A8FF51]/30">
+                Start Your Journey
+              </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-          <Card className="max-w-5xl mx-auto bg-gradient-to-br from-primary via-primary/95 to-primary/90 text-primary-foreground border-0 shadow-2xl overflow-hidden relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-transparent via-secondary/10 to-secondary/20" />
-
-            <CardContent className="p-16 text-center relative z-10">
-              <motion.div className="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-gradient-to-br from-secondary/30 to-secondary/20 mb-8 backdrop-blur-sm" whileHover={{ scale: 1.1, rotate: 10 }} transition={{ duration: 0.3 }}>
-                <BookOpen className="h-12 w-12 text-secondary" />
-                <motion.div className="absolute -top-2 -right-2" animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}>
-                  <Sparkles className="h-6 w-6 text-secondary" />
-                </motion.div>
-              </motion.div>
-
-              <motion.h2 className="text-4xl lg:text-5xl font-bold mb-8 text-balance leading-tight" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2, duration: 0.6 }}>
-                Ready to Begin Your{" "}
-                <span className="relative">
-                  Sacred Learning Journey?
-                  <motion.div className="absolute -bottom-2 left-0 right-0 h-1 bg-secondary rounded-full" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ delay: 0.8, duration: 0.8 }} />
-                </span>
+              <motion.h2 className="mt-5 text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-gray-900" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1, duration: 0.5 }}>
+                Master the <span className="text-transparent bg-gradient-to-r from-[#245E51] to-[#A8FF51] bg-clip-text">Quran & Arabic</span> Online
               </motion.h2>
 
-              <motion.p className="text-xl text-primary-foreground/90 mb-10 max-w-3xl mx-auto text-pretty leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4, duration: 0.6 }}>
-                Join thousands of students worldwide who have chosen our academy for their transformative Quranic and Arabic education. Start with a personalized free trial lesson today.
+              <motion.p className="mt-4 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto text-pretty" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2, duration: 0.5 }}>
+                Join thousands of students learning with certified teachers and personalized plans. Try a free lesson and see the difference.
               </motion.p>
 
-              <motion.div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.6, duration: 0.6 }}>
-                <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-white text-lg px-10 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group border-0" style={{ backgroundColor: "oklch(0.72 0.15 65)", color: "white" }}>
-                  Start Free Trial Lesson
-                  <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                <Button variant="outline" size="lg" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 text-lg px-10 py-4 rounded-xl bg-transparent backdrop-blur-sm transition-all duration-300">
-                  Schedule Consultation
-                </Button>
-              </motion.div>
 
-              <motion.div className="flex items-center justify-center space-x-8 text-primary-foreground/80" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.8, duration: 0.6 }}>
-                <div className="flex items-center space-x-2">
-                  <Star className="h-4 w-4 text-secondary" />
-                  <span className="text-sm font-medium">No commitment required</span>
+              <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-gray-500">
+                <div className="flex items-center justify-center gap-2">
+                  <BookOpen className="h-5 w-5 text-[#245E51]" />
+                  <span>Free placement assessment</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <Star className="h-4 w-4 text-secondary" />
-                  <span className="text-sm font-medium">Meet your teacher</span>
+                <div className="flex items-center justify-center gap-2">
+                  <Sparkles className="h-5 w-5 text-[#245E51]" />
+                  <span>Personalized study plan</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <Star className="h-4 w-4 text-secondary" />
-                  <span className="text-sm font-medium">Personalized learning plan</span>
+                <div className="flex items-center justify-center gap-2">
+                  <Star className="h-5 w-5 text-[#245E51]" />
+                  <span>4.9/5 average rating</span>
                 </div>
-              </motion.div>
-            </CardContent>
-          </Card>
+              </div>
+              </CardContent>
+            </Card>
+          </div>
         </motion.div>
       </div>
     </section>
