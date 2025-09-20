@@ -6,7 +6,7 @@ export function Header() {
     <div className="fixed top-12 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-7xl">
       <header className="bg-white/20 backdrop-blur-xl shadow-2xl border border-white/30 rounded-full">
         <div className="px-6 h-16 flex items-center justify-between">
-          <a href="#home" className="flex items-center space-x-3 group">
+          <a href="/" className="flex items-center space-x-3 group">
             <div className="relative">
               <img src="/logo/SVG/Asset 3.svg" alt="Dhikr Institute" className="h-10 w-auto transition-transform group-hover:scale-105" />
             </div>
@@ -17,13 +17,13 @@ export function Header() {
           </a>
 
           <nav className="hidden lg:flex items-center space-x-1">
-             <a href="#home" className="px-4 py-2 text-sm font-medium text-gray-800 hover:text-primary hover:bg-white/20 rounded-full transition-all duration-200 drop-shadow-sm">
+             <a href="/" className="px-4 py-2 text-sm font-medium text-gray-800 hover:text-primary hover:bg-white/20 rounded-full transition-all duration-200 drop-shadow-sm">
                Home
              </a>
              <a href="#about" className="px-4 py-2 text-sm font-medium text-gray-800 hover:text-primary hover:bg-white/20 rounded-full transition-all duration-200 drop-shadow-sm">
                About
              </a>
-             <a href="#courses" className="px-4 py-2 text-sm font-medium text-gray-800 hover:text-primary hover:bg-white/20 rounded-full transition-all duration-200 drop-shadow-sm">
+             <a href="/courses" className="px-4 py-2 text-sm font-medium text-gray-800 hover:text-primary hover:bg-white/20 rounded-full transition-all duration-200 drop-shadow-sm">
                Courses
              </a>
              <a href="#teachers" className="px-4 py-2 text-sm font-medium text-gray-800 hover:text-primary hover:bg-white/20 rounded-full transition-all duration-200 drop-shadow-sm">
