@@ -35,10 +35,10 @@ export function Footer() {
             <h4 className="text-lg font-semibold text-gray-900 mb-6">Quick Links</h4>
             <ul className="space-y-3">
               {[
-                { name: "About Us", href: "#about" },
+                { name: "About Us", href: "/about" },
                 { name: "Our Courses", href: "#courses" },
                 { name: "Teachers", href: "#teachers" },
-                { name: "Student Reviews", href: "#testimonials" },
+                { name: "Student Reviews", href: "/reviews" },
                 { name: "Free Resources", href: "#" },
                 { name: "Blog", href: "#" }
               ].map((link) => (

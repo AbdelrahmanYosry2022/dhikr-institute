@@ -2,9 +2,11 @@
 import { useMemo, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { allCourses, categoryOrder } from "@/pages/courses/data/courses"
+import { useNavigate } from "react-router-dom"
 import { Search, ArrowRight } from "lucide-react"
 
 export function CoursesCatalog() {
+  const navigate = useNavigate()
   const [query, setQuery] = useState("")
   const [category, setCategory] = useState("All")
   const [level, setLevel] = useState("All")
@@ -126,7 +128,12 @@ export function CoursesCatalog() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.55, ease: [0.21,0.68,0.25,0.95] }}
-                  className="relative group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-[#A8FF51] overflow-hidden"
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => navigate(`/courses/${course.id}`)}
+                  onKeyDown={e=>{ if(e.key==='Enter') navigate(`/courses/${course.id}`)}}
+                  aria-label={`View details for ${course.title}`}
+                  className="cursor-pointer relative group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-[#A8FF51] overflow-hidden focus:outline-none focus:ring-2 focus:ring-[#A8FF51]/50"
                 >
                   <div className="relative aspect-[16/10] bg-gray-100">
                     <img

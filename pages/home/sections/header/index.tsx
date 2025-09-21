@@ -20,19 +20,19 @@ export function Header() {
              <a href="/" className="px-4 py-2 text-sm font-medium text-gray-800 hover:text-primary hover:bg-white/20 rounded-full transition-all duration-200 drop-shadow-sm">
                Home
              </a>
-             <a href="#about" className="px-4 py-2 text-sm font-medium text-gray-800 hover:text-primary hover:bg-white/20 rounded-full transition-all duration-200 drop-shadow-sm">
+             <a href="/about" className="px-4 py-2 text-sm font-medium text-gray-800 hover:text-primary hover:bg-white/20 rounded-full transition-all duration-200 drop-shadow-sm">
                About
              </a>
              <a href="/courses" className="px-4 py-2 text-sm font-medium text-gray-800 hover:text-primary hover:bg-white/20 rounded-full transition-all duration-200 drop-shadow-sm">
                Courses
              </a>
-             <a href="#teachers" className="px-4 py-2 text-sm font-medium text-gray-800 hover:text-primary hover:bg-white/20 rounded-full transition-all duration-200 drop-shadow-sm">
+             <a href="/teachers" className="px-4 py-2 text-sm font-medium text-gray-800 hover:text-primary hover:bg-white/20 rounded-full transition-all duration-200 drop-shadow-sm">
                Teachers
              </a>
-             <a href="#testimonials" className="px-4 py-2 text-sm font-medium text-gray-800 hover:text-primary hover:bg-white/20 rounded-full transition-all duration-200 drop-shadow-sm">
+             <a href="/reviews" className="px-4 py-2 text-sm font-medium text-gray-800 hover:text-primary hover:bg-white/20 rounded-full transition-all duration-200 drop-shadow-sm">
                Reviews
              </a>
-             <a href="#contact" className="px-4 py-2 text-sm font-medium text-gray-800 hover:text-primary hover:bg-white/20 rounded-full transition-all duration-200 drop-shadow-sm">
+             <a href="/contact" className="px-4 py-2 text-sm font-medium text-gray-800 hover:text-primary hover:bg-white/20 rounded-full transition-all duration-200 drop-shadow-sm">
                Contact
              </a>
            </nav>
