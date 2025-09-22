@@ -2,6 +2,7 @@
 import { Header } from '@/pages/home/sections/header';
 import { Footer } from '@/pages/home/sections/footer';
 import { motion } from 'framer-motion';
+import { StandardCTA } from '@/components/standard-cta';
 import { Star } from 'lucide-react';
 
 const testimonials = [
@@ -83,23 +84,19 @@ export default function ReviewsPage(){
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-28">
-          <div className="max-w-5xl mx-auto px-6 text-center">
-            <motion.div initial={{ opacity:0, y:40 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true, amount:.4 }} transition={{ duration:.8, ease:[0.23,0.68,0.32,0.97] }} className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#245E51] to-[#1a4a3e] p-12 sm:p-20 text-white shadow-xl">
-              <div className="relative z-10 max-w-2xl mx-auto">
-                <h2 className="text-2xl sm:text-3xl font-bold mb-5">Write Your Story Next</h2>
-                <p className="text-white/85 text-sm sm:text-base leading-relaxed mb-8">Structured paths, real accountability and meaningful guidance make the difference.</p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button className="px-7 py-4 rounded-xl font-semibold bg-white text-gray-900 text-sm sm:text-base shadow hover:shadow-md transition">Start Free Trial</button>
-                  <button className="px-7 py-4 rounded-xl font-semibold bg-[#0c332a] text-white text-sm sm:text-base shadow hover:shadow-md transition">Browse Programs</button>
-                </div>
-              </div>
-              <div className="absolute -right-24 -top-24 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
-              <div className="absolute -left-20 -bottom-20 w-96 h-96 bg-black/10 rounded-full blur-3xl" />
-            </motion.div>
-          </div>
-        </section>
+        <StandardCTA
+          badge="Learner Outcomes"
+            titlePrefix="Write Your"
+            titleHighlight="Story Next"
+            titleSuffix=""
+            paragraph="Structured paths, real accountability and meaningful guidance make the difference in Qur'an, Arabic and studies progress."
+            primaryLabel="Start Free Trial"
+            points={[
+              { icon: 'assessment', label: '92% consistency lift' },
+              { icon: 'plan', label: 'Feedback-driven growth' },
+              { icon: 'rating', label: '4.9/5 verified rating' }
+            ]}
+        />
       </main>
       <Footer />
     </div>

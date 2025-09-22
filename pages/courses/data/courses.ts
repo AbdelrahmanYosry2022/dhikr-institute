@@ -25,7 +25,7 @@ export const allCourses: Course[] = [
   {
     id: "quran-reading-tajweed",
     title: "Quran Reading & Tajweed",
-    description: "Master accurate Quran recitation with proper articulation (makharij) and progressive Tajweed rules.",
+  description: "Build precise Qur'an recitation: articulation (makhārij), core → advanced tajwīd rules and fluent rhythmic flow.",
     level: "Beginner → Advanced",
     duration: "6 months",
     students: "850+",
@@ -55,7 +55,7 @@ export const allCourses: Course[] = [
   {
     id: "quran-memorization-hifz",
     title: "Quran Memorization (Hifz)",
-    description: "Structured Hifz journey with retention cycles, accountability, memorization tracking & coaching.",
+  description: "Structured ḥifẓ pathway: daily pages, spaced revision loops, accountability metrics and certified coaching.",
     level: "All Levels",
     duration: "2–4 years",
     students: "420+",
@@ -81,7 +81,7 @@ export const allCourses: Course[] = [
   {
     id: "quran-translation-tafsir",
     title: "Quran Translation & Tafsir",
-    description: "Understand Quranic meanings through thematic translation, key vocabulary & classical explanations.",
+  description: "Access Qur'anic meaning via thematic translation, high‑frequency vocabulary and concise classical tafsīr insights.",
     level: "Intermediate",
     duration: "5 months",
     students: "260+",
@@ -99,7 +99,7 @@ export const allCourses: Course[] = [
   {
     id: "quran-for-beginners",
     title: "Quran for Beginners",
-    description: "Foundational reading course for absolute beginners: letters, short vowels, joining & basic fluency.",
+  description: "Absolute beginner reading: letters, short vowels, joining patterns and confident basic recitation startup.",
     level: "Absolute Beginner",
     duration: "10 weeks",
     students: "510+",
@@ -119,7 +119,7 @@ export const allCourses: Course[] = [
   {
     id: "modern-standard-arabic",
     title: "Modern Standard Arabic",
-    description: "Structured MSA path: vocabulary, grammar, sentence formation & comprehension for daily and academic use.",
+  description: "Progressive MSA track: core vocabulary, functional grammar, sentence patterns and graded reading fluency.",
     level: "Beginner → Intermediate",
     duration: "8 months",
     students: "650+",
@@ -139,7 +139,7 @@ export const allCourses: Course[] = [
   {
     id: "quranic-arabic",
     title: "Quranic Arabic",
-    description: "Unlock classical vocabulary & morphology for direct Quran comprehension.",
+  description: "Decode Qur'anic Arabic: roots, morphology patterns and high‑yield lexical clusters for direct verse grasp.",
     level: "Intermediate",
     duration: "6 months",
     students: "420+",
@@ -157,7 +157,7 @@ export const allCourses: Course[] = [
   {
     id: "egyptian-dialect",
     title: "Egyptian Arabic Dialect",
-    description: "Practical spoken Egyptian Arabic for daily life, media & conversation.",
+  description: "Conversational Egyptian Arabic: daily situations, media phrases and fluid beginner interaction confidence.",
     level: "Beginner",
     duration: "12 weeks",
     students: "300+",
@@ -175,7 +175,7 @@ export const allCourses: Course[] = [
   {
     id: "arabic-for-kids",
     title: "Arabic for Kids",
-    description: "Engaging foundational Arabic learning for young learners through stories & activities.",
+  description: "Child‑friendly Arabic foundations: letters mastery, playful vocab buildup and story‑driven recognition.",
     level: "Beginner",
     duration: "5 months",
     students: "180+",
@@ -195,7 +195,7 @@ export const allCourses: Course[] = [
   {
     id: "islamic-studies-foundation",
     title: "Islamic Studies Foundation",
-    description: "Structured overview of beliefs (aqeedah), worship, seerah & daily practice.",
+  description: "Foundational Islamic studies: ‘aqīdah essentials, worship rulings, seerah scaffolding and applied daily practice.",
     level: "Beginner",
     duration: "4 months",
     students: "380+",
@@ -213,7 +213,7 @@ export const allCourses: Course[] = [
   {
     id: "fiqh-essentials",
     title: "Fiqh Essentials",
-    description: "Foundational rulings of worship with practical application & evidences.",
+  description: "Core fiqh of worship: purification flow, ṣalāh structure, fasting basics and evidence‑based application.",
     level: "Beginner",
     duration: "6 weeks",
     students: "340+",
@@ -231,7 +231,7 @@ export const allCourses: Course[] = [
   {
     id: "hadith-studies-intro",
     title: "Introduction to Hadith Studies",
-    description: "Classification, authenticity principles & key canonical collections.",
+  description: "Intro hadith methodology: classification system, authenticity principles and major collection navigation.",
     level: "Intermediate",
     duration: "3 months",
     students: "210+",
@@ -249,7 +249,7 @@ export const allCourses: Course[] = [
   {
     id: "islamic-history-seerah",
     title: "Islamic History & Seerah",
-    description: "Chronological journey of the Prophet’s life and early Islamic development.",
+  description: "Chronological seerah journey: pre‑revelation context, Makkan formation, Madinan transformation and legacy themes.",
     level: "Beginner → Intermediate",
     duration: "5 months",
     students: "260+",
